@@ -11,25 +11,19 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var diceImageViewOne: UIImageView!
     @IBOutlet weak var diceImageViewTwo: UIImageView!
-    var rollOne = 0
+    var diceArray = [UIImage(imageLiteralResourceName: "DiceOne"),UIImage(imageLiteralResourceName: "DiceTwo"),UIImage(imageLiteralResourceName: "DiceThree"),UIImage(imageLiteralResourceName: "DiceFour"),UIImage(imageLiteralResourceName: "DiceFive"),UIImage(imageLiteralResourceName: "DiceSix")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         diceImageViewOne.image = UIImage(imageLiteralResourceName: "DiceSix")
         diceImageViewTwo.image = UIImage(imageLiteralResourceName: "DiceTwo")
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-       
         
-        diceImageViewOne.image = [UIImage(imageLiteralResourceName: "DiceOne"),UIImage(imageLiteralResourceName: "DiceTwo"),UIImage(imageLiteralResourceName: "DiceThree"),UIImage(imageLiteralResourceName: "DiceFour"),UIImage(imageLiteralResourceName: "DiceFive"),UIImage(imageLiteralResourceName: "DiceSix")][rollOne]
-        
-            rollOne = rollOne + 1
-        if rollOne > 5 {
-            rollOne = 0
-        }
-        
+        diceImageViewOne.image = diceArray[Int.random(in: 0...5)]
+        diceImageViewTwo.image = diceArray[Int.random(in: 0...5)]
     }
     
 }
